@@ -1,6 +1,5 @@
 streamlit
-openai
-gtts
 requests
+gtts
 speechrecognition
 pydub
