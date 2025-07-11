@@ -1,9 +1,11 @@
-import pyttsx3
+from gtts import gTTS
+import os
 
-def speak_text(text):
-    print("🔊 Speaking...")
-    engine = pyttsx3.init()
-    engine.setProperty('rate', 170)   # You can adjust speed here
-    engine.setProperty('volume', 1.0) # Max volume
-    engine.say(text)
-    engine.runAndWait()
+def speak_text_streamlit(text, filename="output.mp3"):
+    try:
+        tts = gTTS(text)
+        tts.save(filename)
+        return filename
+    except Exception as e:
+        print(f"Text-to-speech failed: {e}")
+        return None

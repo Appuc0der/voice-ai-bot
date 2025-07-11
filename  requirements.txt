@@ -1,4 +1,6 @@
+streamlit
 speechrecognition
-pyttsx3
+pydub
+gtts
+openai
 requests
-python-dotenv
