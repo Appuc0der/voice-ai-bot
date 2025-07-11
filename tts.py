@@ -1,5 +1,4 @@
 from gtts import gTTS
-import os
 
 def speak_text_streamlit(text, filename="output.mp3"):
     try:

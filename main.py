@@ -30,11 +30,12 @@ if __name__ == "__main__":
     print(f"💬 Bot says: {response}")
     print("🔊 Speaking...")
     speak(response)
-    import streamlit as st
-from tts import speak_text_streamlit
+    
 
-# After LLM response
+from tts import speak_text_streamlit
+import streamlit as st
+
+# After getting response_text from LLM:
 mp3_file = speak_text_streamlit(response_text)
 if mp3_file:
     st.audio(mp3_file, format="audio/mp3")
-
