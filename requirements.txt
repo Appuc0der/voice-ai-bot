@@ -1,7 +1,6 @@
 streamlit
+openai
+gtts
+requests
 speechrecognition
 pydub
-openai
-requests
-ffmpeg-python
-anthropic

@@ -1,12 +1,18 @@
 import speech_recognition as sr
-import pyttsx3
-from llm import ask_groq
+from gtts import gTTS
+import base64
+import io
 
-def transcribe():
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("🎤 Listening... Please speak clearly.")
-        audio = recognizer.listen(source)
+from llm import ask_groq
+def speak_text(text):
+    tts = gTTS(text)
+    with io.BytesIO() as audio_bytes:
+        tts.write_to_fp(audio_bytes)
+        audio_bytes.seek(0)
+        b64 = base64.b64encode(audio_bytes.read()).decode()
+        audio_html = f'<audio autoplay controls><source src="data:audio/mp3;base64,{b64}" type="audio/mp3"></audio>'
+        st.markdown(audio_html, unsafe_allow_html=True)
+
 
     print("📝 Transcribing...")
     try:
